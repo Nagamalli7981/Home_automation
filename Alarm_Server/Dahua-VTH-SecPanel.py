@@ -89,7 +89,7 @@ class _Watchdog:
         if not coldBootP2P and not Dahua.lock.locked(): P2P_timeout_Thread.join()
         if Dahua.VTH_ON_LINE == 0 and not Dahua.SERVICE_SUSPENDED: Dahua.logout()
         if Dahua.SERVICE_SUSPENDED: 
-            time.sleep( 3600 )
+            time.sleep( 10000 )
             os._exit(SECURITY_BREACH)
         #if Dahua.socket_event.is_set(): time.sleep(WATCHDOG_RESET) # Network issue. Happen with some VTO calls. VTH is back after a few minutes
         if Dahua.lock.locked(): os._exit(WATCHDOG_TERMINATION)
